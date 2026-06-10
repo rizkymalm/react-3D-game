@@ -4,7 +4,11 @@ import { hero } from '@/lib/hero';
 
 import SlideshowMultiple from '../slideshow/SlideshowMultiple';
 
-const HeroList = () => {
+interface Props {
+    value?: (value: string | null) => void;
+}
+
+const HeroList = ({ value }: Props) => {
     return (
         <div className="h-full w-full">
             <ul className="[&>li]:my-2">
@@ -20,9 +24,8 @@ const HeroList = () => {
                     hoverIncrease
                     draggable
                     onClick={event =>
-                        console.log(
-                            event.currentTarget.getAttribute('data-key')
-                        )
+                        value &&
+                        value(event.currentTarget.getAttribute('data-key'))
                     }
                 />
             </ul>
