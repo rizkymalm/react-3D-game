@@ -7,12 +7,10 @@ import * as THREE from 'three';
 type HeroProps = {
     model: string;
     radius: number;
-    speed: number;
     size: number;
-    onClick: (worldPosition: THREE.Vector3) => void;
 };
 
-export default function HeroModel({ model, size, onClick }: HeroProps) {
+export default function HeroModel({ model, size }: HeroProps) {
     const ref = useRef<THREE.Group>(null);
     const { scene, animations } = useGLTF(model);
     const { actions, names } = useAnimations(animations, ref);
@@ -51,17 +49,17 @@ export default function HeroModel({ model, size, onClick }: HeroProps) {
 
     // Orbit motion
 
-    const handleClick = () => {
-        if (!ref.current) return;
+    // const handleClick = () => {
+    //     if (!ref.current) return;
 
-        const worldPos = new THREE.Vector3();
-        ref.current.getWorldPosition(worldPos);
+    //     const worldPos = new THREE.Vector3();
+    //     ref.current.getWorldPosition(worldPos);
 
-        onClick(worldPos);
-    };
+    //     onClick(worldPos);
+    // };
 
     return (
-        <group ref={ref} scale={size} onClick={handleClick}>
+        <group ref={ref} scale={size} position={[0, -4, -5]}>
             <primitive object={scene} />
         </group>
     );

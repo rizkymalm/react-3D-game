@@ -168,7 +168,7 @@ const SlideshowMultiple = ({
             ref={ref}
         >
             <div
-                className="relative flex w-full py-6 transition-transform duration-300"
+                className="relative flex w-full py-2 transition-transform duration-300"
                 style={{
                     width: `${wrapperWidth}px`,
                     transform: `translateX(${translateX}px)`,

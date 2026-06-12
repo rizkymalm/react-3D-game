@@ -4,4 +4,6 @@ export interface HeroTypes {
     description?: string;
     image: string;
     model: string;
+    position: any;
+    size: number;
 }

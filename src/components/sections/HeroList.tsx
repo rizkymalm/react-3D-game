@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
+import { findIndex } from '@/lib/findObj';
 import { hero } from '@/lib/hero';
 
 import SlideshowMultiple from '../slideshow/SlideshowMultiple';
@@ -9,24 +10,36 @@ interface Props {
 }
 
 const HeroList = ({ value }: Props) => {
+    const [data, setData] = useState<string | null>(null);
+    const [model, setModel] = useState<number>(-1);
+    useEffect(() => {
+        if (data) {
+            const find = findIndex(hero, 'id', data);
+            setModel(find);
+        }
+    }, [value]);
+
     return (
         <div className="h-full w-full">
-            <ul className="[&>li]:my-2">
+            <ul>
                 <SlideshowMultiple
                     data={hero}
                     show={7}
                     ratio="1:1"
                     peek
-                    autoSlide
                     interval={10000}
                     isSelected
-                    selected={0}
+                    selected={model}
                     hoverIncrease
                     draggable
-                    onClick={event =>
-                        value &&
-                        value(event.currentTarget.getAttribute('data-key'))
-                    }
+                    onClick={event => {
+                        if (value) {
+                            value(event.currentTarget.getAttribute('data-key'));
+                            setData(
+                                event.currentTarget.getAttribute('data-key')
+                            );
+                        }
+                    }}
                 />
             </ul>
         </div>
