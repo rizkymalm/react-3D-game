@@ -12,8 +12,10 @@ import { hero } from '@/lib/hero';
 import { type HeroTypes } from '@/types/hero.type';
 
 const HomePage = () => {
-    const [slideValue, setSlideValue] = useState<string | null>(null);
-    const [selectedHero, setSelectedHero] = useState<HeroTypes | null>(null);
+    const [slideValue, setSlideValue] = useState<string | null>('');
+    const [selectedHero, setSelectedHero] = useState<
+        HeroTypes | undefined | null
+    >();
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         function getHero() {

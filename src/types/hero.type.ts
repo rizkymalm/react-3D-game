@@ -2,7 +2,7 @@ interface StatProps {
     attack: number;
     defense: number;
     ulti: number;
-    ablity: number;
+    ability: number;
 }
 
 export interface HeroTypes {
