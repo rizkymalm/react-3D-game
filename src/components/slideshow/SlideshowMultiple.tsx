@@ -179,7 +179,7 @@ const SlideshowMultiple = ({
                 {/* this is image content */}
                 {data.map((item, index: number) => (
                     <div
-                        className={`dark:border-light-3/10 relative cursor-pointer rounded-md bg-bg-dark-1 transition-transform duration-300 ${hoverIncrease && 'increase'}`}
+                        className={`bg-bg-dark-1 relative cursor-pointer rounded-md transition-transform duration-300 dark:border-light-3/10 ${hoverIncrease && 'increase'}`}
                         style={{
                             backgroundImage: `url('${item.image}')`,
                             backgroundSize: 'cover',

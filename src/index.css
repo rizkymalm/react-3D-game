@@ -1,6 +1,10 @@
+@import "./styles/font.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 
 body {
     overflow-x: hidden;
@@ -62,4 +66,60 @@ body {
 .increase:hover {
     transform: scale(1.2) !important;
     z-index: 99;
+}
+
+
+/* typography */
+@layer components {
+
+	.ty-super {
+		@apply text-title-xxl font-extrabold leading-tight;
+	}
+
+	/* ===== HEADINGS ===== */
+	.ty-h1 {
+		@apply text-title-xl font-bold leading-tight;
+	}
+
+	.ty-h2 {
+		@apply text-title-lg font-semibold leading-tight;
+	}
+
+	.ty-h3 {
+		@apply text-title-md font-semibold leading-snug;
+	}
+
+	.ty-h4 {
+		@apply text-title-sm font-medium leading-snug;
+	}
+
+	.ty-h5 {
+		@apply text-title-xs font-medium leading-snug;
+	}
+
+	/* ===== BODY ===== */
+	.ty-body-xl {
+		@apply text-text-xxl font-semibold leading-relaxed;
+	}
+
+	.ty-body-lg {
+		@apply text-text-xl font-semibold leading-relaxed;
+	}
+
+	.ty-body {
+		@apply text-text-lg font-medium leading-normal;
+	}
+
+	.ty-body-sm {
+		@apply text-text-md font-regular leading-normal;
+	}
+
+	/* ===== LABEL / META ===== */
+	.ty-label {
+		@apply text-text-sm font-light tracking-wide;
+	}
+
+	.ty-caption {
+		@apply text-text-xs font-extralight;
+	}
 }

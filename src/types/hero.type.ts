@@ -1,3 +1,10 @@
+interface StatProps {
+    attack: number;
+    defense: number;
+    ulti: number;
+    ablity: number;
+}
+
 export interface HeroTypes {
     id: number | string;
     name: string;
@@ -6,4 +13,8 @@ export interface HeroTypes {
     model: string;
     position: any;
     size: number;
+    idle: string;
+    action: string;
+    role: 'fighter' | 'tank' | 'marksman' | 'assasin' | 'mage' | 'support';
+    stats: StatProps;
 }

@@ -47,17 +47,27 @@ export default {
                     800: '#4F4F4F',
                     900: '#2C2C2C',
                 },
-                bg: {
-                    light: {
-                        1: '#FAFAFB', // primary background (app)
-                        2: '#FFFFFF', // secondary background (card)
-                        3: '#F2F2F5', // tertiary / hover / subtle surface
-                    },
-                    dark: {
-                        1: '#0E0E11', // primary background
-                        2: '#16161A', // secondary background
-                        3: '#1E1E24', // tertiary / hover
-                    },
+                // LIGHT MODE BACKGROUND
+                light: {
+                    1: '#FAFAFB', // primary background (app)
+                    2: '#FFFFFF', // secondary background (card)
+                    3: '#F2F2F5', // tertiary / hover / subtle surface
+                },
+                // DARK MODE BACKGROUND
+                dark: {
+                    1: '#0E0E11', // primary background
+                    2: '#16161A', // secondary background
+                    3: '#1E1E24', // tertiary / hover
+                },
+                tier: {
+                    bronze: '#b96d2f',
+                    silver: '#7d95a5',
+                    gold: '#c98b19',
+                    platinum: '#00a4a6',
+                    diamond: '#672bd1',
+                    master: '#c12d4c',
+                    grandmaster: '#397dc2',
+                    legend: '#cf390c',
                 },
                 text: {
                     light: {

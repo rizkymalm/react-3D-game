@@ -18,7 +18,7 @@ const Page = forwardRef<HTMLDivElement, PageProps>(
                 <div
                     ref={ref}
                     {...other}
-                    className="container mx-auto min-h-screen w-full max-w-full bg-bg-dark-1"
+                    className="bg-bg-dark-1 container mx-auto min-h-screen w-full max-w-full"
                 >
                     {children}
                 </div>

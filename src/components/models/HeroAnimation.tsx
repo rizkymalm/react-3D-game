@@ -25,6 +25,8 @@ const HeroAnimation = ({ data }: any) => {
                                 model={hero.model}
                                 radius={0}
                                 size={hero.size}
+                                idle={hero.idle}
+                                action={hero.action}
                             />
                             <Preload all />
                         </React.Suspense>

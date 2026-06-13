@@ -8,9 +8,11 @@ type HeroProps = {
     model: string;
     radius: number;
     size: number;
+    idle: string;
+    action: string;
 };
 
-export default function HeroModel({ model, size }: HeroProps) {
+export default function HeroModel({ model, size, idle, action }: HeroProps) {
     const ref = useRef<THREE.Group>(null);
     const { scene, animations } = useGLTF(model);
     const { actions, names } = useAnimations(animations, ref);
@@ -18,8 +20,8 @@ export default function HeroModel({ model, size }: HeroProps) {
     useEffect(() => {
         console.log('Available animations:', names);
 
-        const idleAction = actions.city_idle;
-        const introAction = actions.city_action;
+        const idleAction = actions[idle];
+        const introAction = actions[action];
 
         if (!idleAction || !introAction) return;
 
