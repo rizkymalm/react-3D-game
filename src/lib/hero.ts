@@ -75,7 +75,7 @@ export const hero: HeroTypes[] = [
     },
     {
         id: 'tigreal-1',
-        name: 'tigreal',
+        name: 'Tigreal',
         image: '/hero/thumbnail-tigreal.png',
         description: '',
         model: '/models/hero_tigreal_lobby.glb',
@@ -129,7 +129,7 @@ export const hero: HeroTypes[] = [
     },
     {
         id: 'vexana-1',
-        name: 'vexana',
+        name: 'Vexana',
         image: '/hero/thumbnail-vexana.png',
         description: '',
         model: '/models/hero_vexana_old_model_lobby.glb',
@@ -147,7 +147,7 @@ export const hero: HeroTypes[] = [
     },
     {
         id: 'kagura-1',
-        name: 'kagura',
+        name: 'Kagura',
         image: '/hero/thumbnail-kagura.png',
         description: '',
         model: '/models/hero_kagura_lobby.glb',
@@ -165,7 +165,7 @@ export const hero: HeroTypes[] = [
     },
     {
         id: 'ruby-1',
-        name: 'ruby',
+        name: 'Ruby',
         image: '/hero/thumbnail-ruby.png',
         description: '',
         model: '/models/hero_ruby_old_lobby.glb',

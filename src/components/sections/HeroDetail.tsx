@@ -2,16 +2,21 @@ import React, { useEffect, useState } from 'react';
 
 import { type HeroTypes } from '@/types/hero.type';
 
-const HeroDetail = ({ data }: any) => {
+interface Props {
+    data: any;
+}
+
+const HeroDetail = ({ data }: Props) => {
     const [hero, setHero] = useState<HeroTypes | null>(null);
     useEffect(() => {
         if (data) {
             setHero(data);
         }
     }, [data]);
-    console.log(hero);
     return (
-        <div className="absolute inset-0 m-auto h-40 w-full">
+        <div
+            className={`absolute inset-0 m-auto h-40 w-full transition-transform duration-300 ${data ? 'translate-x-0' : '-translate-x-full'}`}
+        >
             <div className="relative min-h-10 w-full p-4">
                 <div className="bgGradient-left absolute inset-0 z-0 m-auto h-full w-full" />
                 <div className="relative z-99">

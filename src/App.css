@@ -123,8 +123,8 @@
 .progress-bar {
     position: relative;
     width: 100%;
-    height: 8px;
-    border-radius: 8px;
+    height: 6px;
+    border-radius: 6px;
     z-index: 99;
 }
 .progress-bar .progress {
@@ -133,16 +133,12 @@
     top: 0;
     bottom: 0;
     left: 0;
-    border-radius: 8px;
+    border-radius: 6px;
     z-index: 99;
-    background: linear-gradient(
-        180deg,
-        #a4b0b7 0%,
-        #acbcc6 25%,
-        #7d95a5 50%,
-        #5a6d7c 75%,
-        #9ba8b0 100%
-    );
+    /* background: linear-gradient(90deg, #228B22  0%, #409d40 40%, #98FF98 100%); */
+    background: linear-gradient(90deg, #00A86B 0%, #00A86B 40%, #50C878 100%);
+    /* background: linear-gradient(90deg, #008B8B 0%, #008B8B 40%, #00CED1 100%); */
+
 }
 .progress-bar .tooltip-progress {
     position: absolute;

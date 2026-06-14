@@ -24,7 +24,7 @@ const HeroList = ({ value }: Props) => {
             <ul>
                 <SlideshowMultiple
                     data={hero}
-                    show={7}
+                    show={9}
                     ratio="1:1"
                     peek
                     interval={10000}
