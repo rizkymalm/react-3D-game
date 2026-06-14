@@ -11,7 +11,7 @@ const HeroStats = ({ data }: any) => {
     }, [data]);
     return (
         <div
-            className={`absolute inset-y-0 right-0 z-9 m-auto h-[40%] w-[50%] lg:w-[28%] pr-10 transition-transform duration-300 ${data ? 'translate-x-0' : 'translate-x-full'}`}
+            className={`absolute inset-y-0 right-0 z-9 m-auto h-[40%] w-[50%] pr-10 transition-transform duration-300 sm:w-[30%] lg:w-[28%] ${data ? 'translate-x-0' : 'translate-x-full'}`}
         >
             <div className="bgGradient-right absolute inset-0 z-0 m-auto h-full w-full" />
             <div className="orbitron-bold flex h-full w-full flex-col gap-2 px-4 py-2">

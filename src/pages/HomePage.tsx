@@ -46,7 +46,7 @@ const HomePage = () => {
                     <div className="image01"></div>
                     <div className="image02"></div>
                 </div>
-                <div className="absolute inset-y-0 left-0 z-9 m-auto h-full w-[50%] lg:w-[23%]">
+                <div className="absolute inset-y-0 left-0 z-9 m-auto h-full w-[50%] sm:w-[30%] lg:w-[23%]">
                     <HeroDetail data={selectedHero} />
                 </div>
                 <div className="absolute inset-x-0 -bottom-0 z-9 m-auto w-[50%]">
