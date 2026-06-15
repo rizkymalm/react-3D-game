@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
+import { findObj } from '@/lib/findObj';
+import { roleOption } from '@/lib/hero';
+import type { RoleTypes } from '@/types/hero.type';
 import { type HeroTypes } from '@/types/hero.type';
 
 interface Props {
@@ -8,9 +11,14 @@ interface Props {
 
 const HeroDetail = ({ data }: Props) => {
     const [hero, setHero] = useState<HeroTypes | null>(null);
+    const [role, setRole] = useState<RoleTypes | null>(null);
     useEffect(() => {
         if (data) {
             setHero(data);
+            const roles = findObj(roleOption, 'role', data.role);
+            if (roles) {
+                setRole(roles);
+            }
         }
     }, [data]);
     return (
@@ -24,7 +32,7 @@ const HeroDetail = ({ data }: Props) => {
                         <div
                             className="h-14 w-14"
                             style={{
-                                backgroundImage: `url('/hero/role/role-fighter.png')`,
+                                backgroundImage: `url('${role?.icon}')`,
                                 backgroundSize: 'cover',
                             }}
                         />
@@ -32,7 +40,7 @@ const HeroDetail = ({ data }: Props) => {
                             <p className="ty-h4 text-center text-white">
                                 {hero?.name}
                             </p>
-                            <p className="ty-body tier-gold relative z-99">
+                            <p className="ty-body tier-gold relative z-99 capitalize">
                                 {hero?.role}
                             </p>
                         </div>
@@ -41,18 +49,12 @@ const HeroDetail = ({ data }: Props) => {
             </div>
             <div className="w-full p-4">
                 <ul className="flex w-full gap-2">
-                    <li>
-                        <img src="/hero/magic/magic-freya-1.png" width={50} />
-                    </li>
-                    <li>
-                        <img src="/hero/magic/magic-freya-2.png" width={50} />
-                    </li>
-                    <li>
-                        <img src="/hero/magic/magic-freya-3.png" width={50} />
-                    </li>
-                    <li>
-                        <img src="/hero/magic/magic-freya-4.png" width={50} />
-                    </li>
+                    {hero?.skill &&
+                        hero.skill.map(item => (
+                            <li>
+                                <img src={item} width={50} />
+                            </li>
+                        ))}
                 </ul>
             </div>
         </div>

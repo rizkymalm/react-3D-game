@@ -1,3 +1,4 @@
+import type { RoleTypes } from '@/types/hero.type';
 import { type HeroTypes } from '@/types/hero.type';
 
 export const hero: HeroTypes[] = [
@@ -18,6 +19,12 @@ export const hero: HeroTypes[] = [
             ulti: 60,
             ability: 75,
         },
+        skill: [
+            '/hero/magic/skill-freya-1.png',
+            '/hero/magic/skill-freya-2.png',
+            '/hero/magic/skill-freya-3.png',
+            '/hero/magic/skill-freya-4.png',
+        ],
     },
     {
         id: 'alice-1',
@@ -36,6 +43,12 @@ export const hero: HeroTypes[] = [
             ulti: 60,
             ability: 75,
         },
+        skill: [
+            '/hero/magic/skill-alice-1.png',
+            '/hero/magic/skill-alice-2.png',
+            '/hero/magic/skill-alice-3.png',
+            '/hero/magic/skill-alice-4.png',
+        ],
     },
     {
         id: 'wanwan-1',
@@ -54,6 +67,12 @@ export const hero: HeroTypes[] = [
             ulti: 60,
             ability: 75,
         },
+        skill: [
+            '/hero/magic/skill-wanwan-1.png',
+            '/hero/magic/skill-wanwan-2.png',
+            '/hero/magic/skill-wanwan-3.png',
+            '/hero/magic/skill-wanwan-4.png',
+        ],
     },
     {
         id: 'layla-1',
@@ -72,6 +91,12 @@ export const hero: HeroTypes[] = [
             ulti: 60,
             ability: 75,
         },
+        skill: [
+            '/hero/magic/skill-layla-1.png',
+            '/hero/magic/skill-layla-2.png',
+            '/hero/magic/skill-layla-3.png',
+            '/hero/magic/skill-layla-4.png',
+        ],
     },
     {
         id: 'tigreal-1',
@@ -90,6 +115,12 @@ export const hero: HeroTypes[] = [
             ulti: 60,
             ability: 75,
         },
+        skill: [
+            '/hero/magic/skill-tigreal-1.png',
+            '/hero/magic/skill-tigreal-2.png',
+            '/hero/magic/skill-tigreal-3.png',
+            '/hero/magic/skill-tigreal-4.png',
+        ],
     },
     {
         id: 'carmilla-1',
@@ -108,6 +139,12 @@ export const hero: HeroTypes[] = [
             ulti: 60,
             ability: 75,
         },
+        skill: [
+            '/hero/magic/skill-carmilla-1.png',
+            '/hero/magic/skill-carmilla-2.png',
+            '/hero/magic/skill-carmilla-3.png',
+            '/hero/magic/skill-carmilla-4.png',
+        ],
     },
     {
         id: 'odette-1',
@@ -126,6 +163,12 @@ export const hero: HeroTypes[] = [
             ulti: 60,
             ability: 75,
         },
+        skill: [
+            '/hero/magic/skill-odette-1.png',
+            '/hero/magic/skill-odette-2.png',
+            '/hero/magic/skill-odette-3.png',
+            '/hero/magic/skill-odette-4.png',
+        ],
     },
     {
         id: 'vexana-1',
@@ -144,6 +187,12 @@ export const hero: HeroTypes[] = [
             ulti: 60,
             ability: 75,
         },
+        skill: [
+            '/hero/magic/skill-vexana-1.png',
+            '/hero/magic/skill-vexana-2.png',
+            '/hero/magic/skill-vexana-3.png',
+            '/hero/magic/skill-vexana-4.png',
+        ],
     },
     {
         id: 'kagura-1',
@@ -162,6 +211,12 @@ export const hero: HeroTypes[] = [
             ulti: 60,
             ability: 75,
         },
+        skill: [
+            '/hero/magic/skill-kagura-1.png',
+            '/hero/magic/skill-kagura-2.png',
+            '/hero/magic/skill-kagura-3.png',
+            '/hero/magic/skill-kagura-4.png',
+        ],
     },
     {
         id: 'ruby-1',
@@ -180,6 +235,12 @@ export const hero: HeroTypes[] = [
             ulti: 60,
             ability: 75,
         },
+        skill: [
+            '/hero/magic/skill-ruby-1.png',
+            '/hero/magic/skill-ruby-2.png',
+            '/hero/magic/skill-ruby-3.png',
+            '/hero/magic/skill-ruby-4.png',
+        ],
     },
     {
         id: 'valir-1',
@@ -198,5 +259,38 @@ export const hero: HeroTypes[] = [
             ulti: 60,
             ability: 75,
         },
+        skill: [
+            '/hero/magic/skill-valir-1.png',
+            '/hero/magic/skill-valir-2.png',
+            '/hero/magic/skill-valir-3.png',
+            '/hero/magic/skill-valir-4.png',
+        ],
+    },
+];
+
+export const roleOption: RoleTypes[] = [
+    {
+        role: 'fighter',
+        icon: '/hero/role/role-fighter.png',
+    },
+    {
+        role: 'assasin',
+        icon: '/hero/role/role-assasin.png',
+    },
+    {
+        role: 'marksman',
+        icon: '/hero/role/role-marksman.png',
+    },
+    {
+        role: 'support',
+        icon: '/hero/role/role-support.png',
+    },
+    {
+        role: 'tank',
+        icon: '/hero/role/role-tank.png',
+    },
+    {
+        role: 'mage',
+        icon: '/hero/role/role-mage.png',
     },
 ];
