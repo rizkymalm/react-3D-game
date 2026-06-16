@@ -29,7 +29,7 @@ const SlideshowMultiple = ({
     show = 3,
     peek,
     ratio,
-    autoSlide,
+    autoSlide = false,
     interval = 5000,
     draggable,
     isSelected,
@@ -62,7 +62,7 @@ const SlideshowMultiple = ({
                 setHeight(calculateHeight);
             }
         }
-    }, [ref]);
+    }, [ref, show]);
 
     const handleControlSlideshow = (type: ControlSlideshow) => {
         if (type === 'next') {
@@ -147,21 +147,22 @@ const SlideshowMultiple = ({
 
     // set max translate x for all
     useEffect(() => {
-        const maxTranslateX = !peek
-            ? (data.length - show) * imageWidth
-            : (data.length - show - 0.5) * imageWidth;
-        if (translateX > 0) {
-            setTimeout(() => {
-                setTranslateX(0);
-            }, 300);
-        }
-        if (translateX < -maxTranslateX) {
-            setTimeout(() => {
-                setTranslateX(-maxTranslateX);
-            }, 300);
+        if (data.length > show) {
+            const maxTranslateX = !peek
+                ? (data.length - show) * imageWidth
+                : (data.length - show - 0.5) * imageWidth;
+            if (translateX > 0) {
+                setTimeout(() => {
+                    setTranslateX(0);
+                }, 300);
+            }
+            if (translateX < -maxTranslateX) {
+                setTimeout(() => {
+                    setTranslateX(-maxTranslateX);
+                }, 300);
+            }
         }
     }, [translateX, imageWidth, show, data]);
-
     return (
         <div
             className="no-scrollbar relative w-full max-w-full overflow-hidden"

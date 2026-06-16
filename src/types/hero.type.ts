@@ -8,6 +8,7 @@ interface StatProps {
 export interface RoleTypes {
     role: 'fighter' | 'tank' | 'marksman' | 'assasin' | 'mage' | 'support';
     icon: string;
+    iconFlat: string;
 }
 
 export interface HeroTypes {

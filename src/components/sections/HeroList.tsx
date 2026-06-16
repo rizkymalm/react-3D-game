@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import { useResponsive } from '@/hooks/useResponsive';
 import { findIndex } from '@/lib/findObj';
-import { hero } from '@/lib/hero';
+import { hero, roleOption } from '@/lib/hero';
+import type { HeroTypes } from '@/types/hero.type';
 
 import SlideshowMultiple from '../slideshow/SlideshowMultiple';
 
@@ -11,7 +12,9 @@ interface Props {
 }
 
 const HeroList = ({ value }: Props) => {
+    const [selectedRole, setSelectedRole] = useState('fighter');
     const [data, setData] = useState<string | null>(null);
+    const [heroList, setHeroList] = useState<HeroTypes[]>([]);
     const [model, setModel] = useState<number>(-1);
     const isMobile = useResponsive();
     useEffect(() => {
@@ -20,29 +23,54 @@ const HeroList = ({ value }: Props) => {
             setModel(find);
         }
     }, [value]);
+    useEffect(() => {
+        setHeroList([]);
+        const heros = hero.filter(item => item.role === selectedRole);
+        setHeroList(heros);
+    }, [selectedRole]);
 
+    const handleSelectRole = (role: string) => {
+        setSelectedRole(role);
+    };
     return (
-        <div className="h-full w-full">
+        <div className="relative h-full w-full">
+            <div className="absolute inset-x-0 -top-14 z-9 m-auto h-10 w-[90%]">
+                <div className="relative inset-x-0 m-auto flex w-full justify-center gap-2 lg:w-[50%]">
+                    {roleOption.map(item => (
+                        <div
+                            className={`cursor-pointer rounded-full p-2 transition-all duration-300 ${item.role === selectedRole ? 'bg-accent-light/20' : 'bg-transparent'}`}
+                            onClick={() => handleSelectRole(item.role)}
+                            title={item.role}
+                        >
+                            <img src={item.iconFlat} className="h-6 w-6" />
+                        </div>
+                    ))}
+                </div>
+            </div>
             <ul>
-                <SlideshowMultiple
-                    data={hero}
-                    show={isMobile ? 4 : 8}
-                    ratio="1:1"
-                    peek
-                    interval={10000}
-                    isSelected
-                    selected={model}
-                    hoverIncrease
-                    draggable
-                    onClick={event => {
-                        if (value) {
-                            value(event.currentTarget.getAttribute('data-key'));
-                            setData(
-                                event.currentTarget.getAttribute('data-key')
-                            );
-                        }
-                    }}
-                />
+                {heroList.length > 0 ? (
+                    <SlideshowMultiple
+                        data={heroList}
+                        show={isMobile ? 4 : 8}
+                        ratio="1:1"
+                        peek
+                        isSelected
+                        selected={model}
+                        hoverIncrease
+                        onClick={event => {
+                            if (value) {
+                                value(
+                                    event.currentTarget.getAttribute('data-key')
+                                );
+                                setData(
+                                    event.currentTarget.getAttribute('data-key')
+                                );
+                            }
+                        }}
+                    />
+                ) : (
+                    'Loading'
+                )}
             </ul>
         </div>
     );

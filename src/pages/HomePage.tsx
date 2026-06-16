@@ -50,13 +50,13 @@ const HomePage = () => {
                 <div className="absolute inset-y-0 left-0 z-9 m-auto h-full w-[50%] sm:w-[30%] lg:w-[23%]">
                     <HeroDetail data={selectedHero} />
                 </div>
+                <div className="absolute inset-y-0 right-0 z-9 m-auto h-full w-[50%] overflow-hidden sm:w-[30%] lg:w-[23%]">
+                    <HeroStats data={selectedHero} />
+                </div>
                 <div className="absolute inset-x-0 -bottom-0 z-99 m-auto w-[80%] sm:w-[50%]">
                     <div className="relative inset-0 m-auto h-full w-full">
                         <HeroList value={data => setSlideValue(data)} />
                     </div>
-                </div>
-                <div className="absolute inset-y-0 right-0 z-9 m-auto h-full w-[50%] overflow-hidden sm:w-[30%] lg:w-[23%]">
-                    <HeroStats data={selectedHero} />
                 </div>
                 <div
                     className="absolute inset-0 z-1 m-auto h-screen w-full"

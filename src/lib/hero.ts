@@ -266,31 +266,61 @@ export const hero: HeroTypes[] = [
             '/hero/magic/skill-valir-4.png',
         ],
     },
+    {
+        id: 'lesley-1',
+        name: 'Lesley',
+        image: '/hero/thumbnail-lesley.png',
+        description: '',
+        model: '/models/hero_lesley_lobby.glb',
+        position: [0, 0, 8],
+        size: 7.3,
+        idle: 'city_idle',
+        action: 'city_action',
+        role: 'assasin',
+        stats: {
+            attack: 80,
+            defense: 50,
+            ulti: 60,
+            ability: 75,
+        },
+        skill: [
+            '/hero/magic/skill-valir-1.png',
+            '/hero/magic/skill-valir-2.png',
+            '/hero/magic/skill-valir-3.png',
+            '/hero/magic/skill-valir-4.png',
+        ],
+    },
 ];
 
 export const roleOption: RoleTypes[] = [
     {
         role: 'fighter',
         icon: '/hero/role/role-fighter.png',
+        iconFlat: '/hero/role/role-fighter-flat.png',
     },
     {
         role: 'assasin',
         icon: '/hero/role/role-assasin.png',
+        iconFlat: '/hero/role/role-assasin-flat.png',
     },
     {
         role: 'marksman',
         icon: '/hero/role/role-marksman.png',
+        iconFlat: '/hero/role/role-marksman-flat.png',
     },
     {
         role: 'support',
         icon: '/hero/role/role-support.png',
+        iconFlat: '/hero/role/role-support-flat.png',
     },
     {
         role: 'tank',
         icon: '/hero/role/role-tank.png',
+        iconFlat: '/hero/role/role-tank-flat.png',
     },
     {
         role: 'mage',
         icon: '/hero/role/role-mage.png',
+        iconFlat: '/hero/role/role-mage-flat.png',
     },
 ];
