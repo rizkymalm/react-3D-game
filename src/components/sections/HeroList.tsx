@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import { useResponsive } from '@/hooks/useResponsive';
 import { findIndex } from '@/lib/findObj';
 import { hero } from '@/lib/hero';
 
@@ -12,6 +13,7 @@ interface Props {
 const HeroList = ({ value }: Props) => {
     const [data, setData] = useState<string | null>(null);
     const [model, setModel] = useState<number>(-1);
+    const isMobile = useResponsive();
     useEffect(() => {
         if (data) {
             const find = findIndex(hero, 'id', data);
@@ -24,7 +26,7 @@ const HeroList = ({ value }: Props) => {
             <ul>
                 <SlideshowMultiple
                     data={hero}
-                    show={9}
+                    show={isMobile ? 4 : 8}
                     ratio="1:1"
                     peek
                     interval={10000}

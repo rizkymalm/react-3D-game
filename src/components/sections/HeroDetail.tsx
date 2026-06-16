@@ -29,15 +29,15 @@ const HeroDetail = ({ data }: Props) => {
                 <div className="bgGradient-left absolute inset-0 z-0 m-auto h-full w-full" />
                 <div className="relative z-99">
                     <div className="flex gap-4">
-                        <div
-                            className="h-14 w-14"
-                            style={{
-                                backgroundImage: `url('${role?.icon}')`,
-                                backgroundSize: 'cover',
-                            }}
-                        />
+                        <div>
+                            <img
+                                src={role?.icon}
+                                alt="RM role icon"
+                                className="h-12 w-12 lg:h-14 lg:w-14"
+                            />
+                        </div>
                         <div className="orbitron-bold flex flex-col">
-                            <p className="ty-h4 text-center text-white">
+                            <p className="ty-body-lg lg:ty-h4 text-center text-white">
                                 {hero?.name}
                             </p>
                             <p className="ty-body tier-gold relative z-99 capitalize">
