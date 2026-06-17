@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ButtonIcon } from '../buttons';
 
 interface PropsDataSlide {
-    id: number | string;
+    id: number | string | null;
     name: string;
     description?: string;
     image: string;
@@ -18,7 +18,7 @@ interface PropsSlider extends React.HTMLAttributes<HTMLDivElement> {
     interval?: number;
     draggable?: boolean;
     isSelected?: boolean;
-    selected?: number;
+    selected?: number | string | null;
     hoverIncrease?: boolean;
 }
 
@@ -33,7 +33,7 @@ const SlideshowMultiple = ({
     interval = 5000,
     draggable,
     isSelected,
-    selected = -1,
+    selected = null,
     hoverIncrease,
     ...props
 }: PropsSlider) => {
@@ -43,7 +43,7 @@ const SlideshowMultiple = ({
     const startX = useRef(0);
 
     const [imageWidth, setImageWidth] = useState(0);
-    const [wrapperWidth, setWrapperWidth] = useState(0);
+    // const [wrapperWidth, setWrapperWidth] = useState(0);
     const [translateX, setTranslateX] = useState(0);
     const [height, setHeight] = useState(0);
     useEffect(() => {
@@ -52,12 +52,12 @@ const SlideshowMultiple = ({
                 const contentWidth = !peek
                     ? ref.current.offsetWidth / show
                     : ref.current.offsetWidth / (show + 0.5);
-                const wrapper = contentWidth * data.length;
+                // const wrapper = contentWidth * data.length;
                 const ratioSplit = ratio.split(':');
                 const calculateHeight =
                     (contentWidth * parseInt(ratioSplit[0]!, 10)) /
                     parseInt(ratioSplit[1]!, 10);
-                setWrapperWidth(wrapper);
+                // setWrapperWidth(wrapper);
                 setImageWidth(contentWidth);
                 setHeight(calculateHeight);
             }
@@ -171,14 +171,13 @@ const SlideshowMultiple = ({
             <div
                 className="relative flex w-full py-2 transition-transform duration-300"
                 style={{
-                    width: `${wrapperWidth}px`,
                     transform: `translateX(${translateX}px)`,
                     cursor: draggable ? 'grab' : 'default',
                 }}
                 ref={draggableRef}
             >
                 {/* this is image content */}
-                {data.map((item, index: number) => (
+                {data.map(item => (
                     <div
                         className={`bg-bg-dark-1 relative cursor-pointer rounded-md transition-transform duration-300 dark:border-light-3/10 ${hoverIncrease && 'increase'}`}
                         style={{
@@ -189,12 +188,12 @@ const SlideshowMultiple = ({
                             width: `${imageWidth}px`,
                             height: `${height}px`,
                             transform:
-                                isSelected && selected === index
+                                isSelected && selected === item.id
                                     ? 'scale(1.1) translateY(-4px)'
                                     : 'unset',
-                            zIndex: isSelected && selected === index ? 9 : 1,
+                            zIndex: isSelected && selected === item.id ? 9 : 1,
                             margin:
-                                isSelected && selected === index
+                                isSelected && selected === item.id
                                     ? '0px 8px'
                                     : '0px 4px',
                         }}
@@ -202,7 +201,14 @@ const SlideshowMultiple = ({
                         key={`${item.id}`}
                         data-key={`${item.id}`}
                         {...props}
-                    />
+                    >
+                        {isSelected && selected !== item.id && (
+                            <div className="absolute inset-0 z-9 m-auto bg-dark-3/50" />
+                        )}
+                        <div className="ty-body orbitron-bold absolute inset-x-0 bottom-0 z-10 m-auto text-center text-accent-dark">
+                            {item.name}
+                        </div>
+                    </div>
                 ))}
             </div>
             <div className="absolute inset-y-0 left-0 m-auto h-6 w-6">

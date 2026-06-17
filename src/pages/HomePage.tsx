@@ -3,6 +3,7 @@ import '@/styles/fog.css';
 import BackgroundHero from '@public/models/background-hero.png';
 import React, { useEffect, useState } from 'react';
 
+import { ButtonThematic } from '@/components/buttons';
 import HeroAnimation from '@/components/models/HeroAnimation';
 import Page from '@/components/Page';
 import HeroDetail from '@/components/sections/HeroDetail';
@@ -58,6 +59,16 @@ const HomePage = () => {
                         <HeroList value={data => setSlideValue(data)} />
                     </div>
                 </div>
+                {selectedHero && (
+                    <div className="absolute inset-x-0 inset-x-auto bottom-36 z-9 m-auto flex h-12 w-full justify-center lg:bottom-4 lg:right-0 lg:w-[20%]">
+                        <ButtonThematic
+                            size="md"
+                            text="Select"
+                            type="button"
+                            variant="contained"
+                        />
+                    </div>
+                )}
                 <div
                     className="absolute inset-0 z-1 m-auto h-screen w-full"
                     style={{

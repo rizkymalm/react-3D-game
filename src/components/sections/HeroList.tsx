@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 import { useResponsive } from '@/hooks/useResponsive';
-import { findIndex } from '@/lib/findObj';
 import { hero, roleOption } from '@/lib/hero';
 import type { HeroTypes } from '@/types/hero.type';
 
@@ -15,14 +14,7 @@ const HeroList = ({ value }: Props) => {
     const [selectedRole, setSelectedRole] = useState('fighter');
     const [data, setData] = useState<string | null>(null);
     const [heroList, setHeroList] = useState<HeroTypes[]>([]);
-    const [model, setModel] = useState<number>(-1);
     const isMobile = useResponsive();
-    useEffect(() => {
-        if (data) {
-            const find = findIndex(hero, 'id', data);
-            setModel(find);
-        }
-    }, [value]);
     useEffect(() => {
         setHeroList([]);
         const heros = hero.filter(item => item.role === selectedRole);
@@ -55,7 +47,7 @@ const HeroList = ({ value }: Props) => {
                         ratio="1:1"
                         peek
                         isSelected
-                        selected={model}
+                        selected={data}
                         hoverIncrease
                         onClick={event => {
                             if (value) {

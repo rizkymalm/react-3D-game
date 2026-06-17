@@ -120,6 +120,28 @@
         0 0 20px rgba(72, 46, 11, 0.3);
 }
 
+.tier-grandmaster {
+    background: linear-gradient(
+        180deg,
+        #71b3f6 0%,
+        #5a9de1 25%,
+        #397dc2 50%,
+        #2266aa 75%,
+        #5a98d8 100%
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 10px rgba(0, 61, 163, 0.4),
+        0 0 20px rgba(2, 38, 99, 0.3);
+}
+
 .progress-bar {
     position: relative;
     width: 100%;
@@ -179,4 +201,22 @@
     text-shadow:
         0 0 10px rgba(18, 26, 28, 0.4),
         0 0 20px rgba(34, 46, 55, 0.3);
+}
+
+
+.button-thematic{
+    background-image: url('/src/assets/bg-button.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #67cf67;
+}
+
+.button-thematic:hover{
+    background-image: url('/src/assets/bg-button-hover.png');
+    color: #78d89c;
+}
+.button-thematic:active{
+    background-image: url('/src/assets/bg-button-active.png');
+    color: #377045;
 }
